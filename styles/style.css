@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+ /*import de fonte*/
+/* selecione o codigo ctrl + k + c para colocar comentario */
+
+:root {   /*declarando variaveis */
+    --cor-primaria: #000000;
+    --cor-secundaria: white;
+    --cor-terciaria: #22D4FD;
+    --cor-hover:#272727; 
+
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0; /* resetando margem da tela, caso queira ver só (inspecionar a tela na web) */
+    padding: 0; /* e padding */
+}
+
+body{
+    /* height: 100vh; altura da tela */
+    box-sizing: border-box; /* para nenhuma imagem sair do body, https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing*/
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+.cabecalho {
+    padding: 0% 0% 2% 0%;
+}
+
+.cabecalho__menu {
+    display: flex;  /* chamando os flexbox */
+    gap: 10px; /* soltando 10 de espaço de cada filho*/
+}
+
+.cabecalho__menu__link {
+    font-family: var(--fonte-secundaria);
+    font-size: 24px;
+    font-weight:600;
+    color: var(--cor-terciaria);
+    padding: 6%; /* soltando 6 de espaço dos item */
+    text-decoration: none; 
+}
+
+.apresentacao{ /* mudando posicionamentos, confira https://css-tricks.com/snippets/css/a-guide-to-flexbox/  */
+    padding:2% 5%; /* todos elementos dessa apresentação terá de padding, 2% para inferior e superior e 5% nas laterais*/
+    display: flex; /* chama todos os flexbox */
+    align-items: center; /*centraliza o conteudo */
+    justify-content: space-between; /* alinhamento de espaço */
+    gap: 82px; /* distancia do conteudo para a imagem */
+}
+
+.apresentacao__conteudo{
+    width: 50%;   /*largura da imagem, o comprimento vai de acordo com a largura */
+    display: flex;           /* chamando os filhos do conteudo */
+    flex-direction: column;  /* conteudo como coluna no flexbox */
+    gap: 70px;  /* espaçamento do conteudo para o outro usando no flexbox */
+}
+.apresentacao__conteudo__titulo {
+    font-size: 2.25rem;     /* tamanho da fonte, colocamos em rem para o nevagador então 1 rem é 16 px, 
+    36pix/16 é = 2.25 rem */
+    font-family: var(--fonte-primaria);  /*usando fonte de importacao confira https://fonts.google.com/selection/embed*/
+}      
+
+.titulo-destaque {  /* classe para mudar cor de palavras especificas */
+    color: var(--cor-terciaria);
+}
+
+.primeira-linha{ /* classe para mudar cor de palavras especificas*/
+    color: yellow;
+}
+
+.apresentacao__conteudo__texto {
+    font-size: 1.5rem; /*24px/16rem;   tamanho da fonte*/
+    font-family: var(--fonte-secundaria); /*usando fonte de importação*/
+}
+
+.apresentacao__links {
+    display: flex;  /* chamando todos os filhos do main*/
+    flex-direction: column; /* colocando os links em coluna */
+    align-items: center; /* centralizar os links verticalmente */
+    justify-content: space-between;  /* posicionando elementos com o flexbox */
+    gap: 20px; /* cria uma distancia dos conteudos dos links*/
+}
+
+.apresentacao__links__subtitulo {
+    font-family: var(--fonte-secundaria); /* tipo da fonte */
+    font-weight: 400; /* peso da fonte */
+    font-size: 1.25rem /* tamanho da fonte */
+}
+
+.apresentacao__links__navegacao {
+    /* background-color: #22D4FD; cor de fundo dos botoes */
+    display: flex; /* chamando o flexbox*/
+    justify-content: center; /* colocando no centro do botão */
+    gap: 16px; /* distancia dos elementos */
+    border: 2px, solid var(--cor-terciaria); /* 2px expessura da borda, solid tipo da borda, cor da borda */
+    width: 50%; /*largura da imagem, o comprimento vai de acordo com a largura */
+    text-align: center; /*centralizando texto no botao */
+    font-weight: 600; /*peso da fonte da familia montserrat*/
+    border-radius: 8pxpx; /* borda no botao arredondada */
+    font-size: 1.125rem; /* tamanho da fonte */
+    padding: 2% 0; /* distancia da borda até o conteudo, o 1° valor "21.5px" é vertical, o 2° "0" horizontal
+                        para saber a distancia, basta selecionar alt e arrastar o mouse até a distancia
+                        que queira */
+    text-decoration: none;   /* none = nenhuma decoracao no texto, como sublinhado de link ___ em baixo */                                            
+    font-family: var(--fonte-secundaria); /* tipo de fonte */
+    color: var(--cor-secundaria); /* cor do texto*/
+}
+
+.apresentacao__links__navegacao:hover { /* muda a cor do botão quando passa o mouse encima */
+    background-color: var(--cor-hover);  /* cor do botao passa a ser preto claro qnd passa encima */
+}
+
+.apresentacao__imagem {
+    width: 50%;  /*largura da imagem, o comprimento vai de acordo com a largura */
+}
+
+.rodape {
+    color: var(--cor-primaria); /* cor da fonte */
+    background-color: var(--cor-terciaria); /* cor de fundo */
+    padding: 10px; /*criando a altura do padding, da onde o texto está escrito */
+    text-align: center; /*centralizando texto */
+    font-family: var(--fonte-secundaria);  /*tipo da fonte */
+    font-size: 1.125rem; /* tamanho da fonte */
+    font-weight: 400; /* peso da fonte */
+}
+
+@media (max-width:906px ) { /* caso estiver usando no celular será convertido com essa condição */
+    .cabecalho {
+        padding: 10%; /* colocar a distancia dos elementos para cima, baixo e lados */
+    }
+
+    .cabecalho__menu { /* se o codigo já ter o display flex não precisa digitar novamente pq ele já vem com o codigo base */
+        justify-content: center; /* colocando no centro */
+    }
+
+    .apresentacao {
+        flex-direction: column-reverse; /* condicao para colocar em coluna  e interver a imagem para cima da apresentacao */
+        padding: 2%;
+    }
+    .apresentacao__conteudo {
+        width: auto;  /*auto pq no apresentacaçao_conteudo estimualamos uma largura de 50% da tela, como não queremos usar em celulares, colocamos no automatico para ir de acordo com o espaço, automático  */
+    }
+}
